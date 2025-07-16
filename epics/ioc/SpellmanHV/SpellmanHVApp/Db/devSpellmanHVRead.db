@@ -8,6 +8,8 @@ record(ai, "spellmanhv/rVSet"){
   field(PREC, "3")
   field(AOFF,"0.00")
   field(ASLO, "0.01221")
+  field(ADEL, 0.1)
+  field(MDEL, 0.01)
 }
 
 record(ai, "spellmanhv/rVSet_bit"){
@@ -29,6 +31,8 @@ record(ai, "spellmanhv/rISet"){
   field(PREC, "3")
   field(AOFF,"0.00")
   field(ASLO, "0.0014652")
+  field(ADEL, 0.1)
+  field(MDEL, 0.01)
 }
 
 record(ai, "spellmanhv/rV"){
@@ -76,6 +80,8 @@ record(ai, "spellmanhv/rSWITCH"){
   field(INP,  "@devSpellmanHV.proto get_power $(PORT) $(BUS)")
   field(PINI, "YES")
   field(SCAN, "10 second")
+  field(ADEL, 0.5)
+  field(MDEL, 0.5)
 }
 
 record(ai, "spellmanhv/rOpModeI"){
@@ -100,6 +106,8 @@ record(ai, "spellmanhv/rStatItrlock"){
   field(INP,  "@devSpellmanHV.proto get_status_interlock $(PORT) $(BUS)")
   field(PINI, "YES")
   field(SCAN, "10 second")
+  field(ADEL, 0.5)
+  field(MDEL, 0.5)
 }
 
 record(ai, "spellmanhv/rStatHVInhibit"){

@@ -32,7 +32,7 @@ def add_pv(filename, pvname, period, tier):
 
 
 #### == Write an .xml file
-filename = 'ND2x2_archiver_config_20250701.xml'    
+filename = 'ND2x2_archiver_config_20250716.xml'    
 f = open(filename,'w')
 f.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>')
 f.write(
@@ -53,8 +53,12 @@ end_group(filename, 1)
 ### == add spellman HV
 ################################# 
 start_group(filename, "SpellmanHV", 1)
+add_pv(filename, "spellmanhv/rSWITCH", "0.2", 2)
+add_pv(filename, "spellmanhv/rStatItrlock", "0.2", 2)
 add_pv(filename, "spellmanhv/rI", "0.2", 2)
 add_pv(filename, "spellmanhv/rV", "0.2", 2)
+add_pv(filename, "spellmanhv/rVSet", "0.2", 2)
+add_pv(filename, "spellmanhv/rISet", "0.2", 2)
 end_group(filename, 1)
 
 #################################
