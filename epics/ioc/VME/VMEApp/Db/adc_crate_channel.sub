@@ -1,0 +1,7 @@
+file db/channel.tpl{
+     pattern{channel, Ihihi, Ihigh, Ilow, Ilolo, Ihhsv, Ihsv, Ilsv, Illsv, Vhihi, Vhigh, Vlow, Vlolo, Vhhsv, Vhsv, Vlsv, Vllsv}
+     {0, 100, 80, -1, -1, MAJOR, MINOR, NO_ALARM, NO_ALARM, 20, 16, -1, -1, MAJOR, MINOR, NO_ALARM, NO_ALARM}
+     {1, 100, 80, -1, -1, MAJOR, MINOR, NO_ALARM, NO_ALARM, 20, 16, -1, -1, MAJOR, MINOR, NO_ALARM, NO_ALARM}
+     {3, 100, 80, -1, -1, MAJOR, MINOR, NO_ALARM, NO_ALARM, 20, 16, -1, -1, MAJOR, MINOR, NO_ALARM, NO_ALARM}
+     {5, 100, 80, -1, -1, MAJOR, MINOR, NO_ALARM, NO_ALARM, 20, 16, -1, -1, MAJOR, MINOR, NO_ALARM, NO_ALARM}
+}
