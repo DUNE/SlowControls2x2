@@ -32,7 +32,7 @@ def add_pv(filename, pvname, period, tier):
 
 
 #### == Write an .xml file
-filename = 'ND2x2_archiver_config_20250716.xml'    
+filename = 'ND2x2_archiver_config_20250804.xml'
 f = open(filename,'w')
 f.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>')
 f.write(
@@ -104,7 +104,7 @@ for module in range(0, 4):
     if module != 2:
         this_interlock = this_module + "-interlock"
         for channel_pv in channel_pvs:
-            this_pv = this_interlock  + "_pacFAN/" + channel_pv
+            this_pv = this_interlock + "/" + channel_pv
             add_pv(filename, this_pv, "0.2", 2)
 
 for mpod in range(0, 2):
