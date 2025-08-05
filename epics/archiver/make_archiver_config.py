@@ -32,7 +32,7 @@ def add_pv(filename, pvname, period, tier):
 
 
 #### == Write an .xml file
-filename = 'ND2x2_archiver_config_20250804.xml'
+filename = 'ND2x2_archiver_config_20250805.xml'
 f = open(filename,'w')
 f.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>')
 f.write(
@@ -112,6 +112,63 @@ for mpod in range(0, 2):
     for crate_pv in crate_pvs:
         this_pv = this_mpod + "/" + crate_pv
         add_pv(filename, this_pv, "0.2", 2)
+end_group(filename, 1)
+
+#################################
+### == add VME Crates
+#################################
+start_group(filename, "VME_Crates", 1)
+
+# Follow the exact order from the original list
+# 1. Temperature sensors for all crates
+for crate in ["ADC_crate", "VGA_crate01", "VGA_crate23"]:
+    for sensor in range(1, 9):
+        sensor_pv = f"{crate}_sensor{sensor}/temperature"
+        add_pv(filename, sensor_pv, "0.2", 2)
+
+# 2. Measurement parameters for monitored channels
+vme_channels = [0, 1, 3, 5]
+measurement_pvs = ["outputMeasurementCurrent", "outputMeasurementSenseVoltage"]
+for crate in ["ADC_crate", "VGA_crate01", "VGA_crate23"]:
+    for channel in vme_channels:
+        for pv in measurement_pvs:
+            channel_pv = f"{crate}_ch{channel}/{pv}"
+            add_pv(filename, channel_pv, "0.2", 2)
+
+# 3. Output parameters for monitored channels  
+output_pvs = ["outputVoltage", "outputCurrent", "outputSupervisionMaxCurrent", 
+              "outputSupervisionMaxTerminalVoltage", "outputSupervisionMaxPower"]
+for crate in ["ADC_crate", "VGA_crate01", "VGA_crate23"]:
+    for channel in vme_channels:
+        for pv in output_pvs:
+            channel_pv = f"{crate}_ch{channel}/{pv}"
+            add_pv(filename, channel_pv, "0.2", 2)
+
+# 4. System-level main switches
+for crate in ["ADC_crate", "VGA_crate01", "VGA_crate23"]:
+    add_pv(filename, f"{crate}/sysMainSwitch", "0.2", 2)
+
+# 5. Control parameters for monitored channels
+control_pvs = ["outputSupervisionBehavior", "outputSwitch"]
+for crate in ["ADC_crate", "VGA_crate01", "VGA_crate23"]:
+    for channel in vme_channels:
+        for pv in control_pvs:
+            channel_pv = f"{crate}_ch{channel}/{pv}"
+            add_pv(filename, channel_pv, "0.2", 2)
+
+# 6. System status and serial numbers
+system_status_pvs = ["sysStatus", "psSerialNumber"]
+for crate in ["ADC_crate", "VGA_crate01", "VGA_crate23"]:
+    for pv in system_status_pvs:
+        system_pv = f"{crate}/{pv}"
+        add_pv(filename, system_pv, "0.2", 2)
+
+# 7. Channel status for monitored channels
+for crate in ["ADC_crate", "VGA_crate01", "VGA_crate23"]:
+    for channel in vme_channels:
+        channel_pv = f"{crate}_ch{channel}/outputStatus"
+        add_pv(filename, channel_pv, "0.2", 2)
+
 end_group(filename, 1)
 
 #################################
