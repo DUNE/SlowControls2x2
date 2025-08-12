@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-09-16 16:30:10 by sungbino-->
+<!--Saved on 2025-08-12 08:40:02 by sungbino-->
 <display version="2.0.0">
   <name>Summary</name>
   <width>1000</width>
@@ -123,6 +123,63 @@
       </actions>
       <x>10</x>
       <y>130</y>
+      <width>250</width>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Spellman HV</name>
+    <y>210</y>
+    <height>120</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <widget type="action_button" version="3.0.0">
+      <actions>
+        <action type="open_file">
+          <file>SpellmanHV_Mon.bob</file>
+          <description>Monitor</description>
+        </action>
+      </actions>
+      <x>10</x>
+      <y>10</y>
+      <width>250</width>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>RTD_6</name>
+      <actions>
+        <action type="open_file">
+          <file>SpellmanHV_Control.bob</file>
+          <description>Control</description>
+        </action>
+      </actions>
+      <x>10</x>
+      <y>50</y>
+      <width>250</width>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>VME Crates</name>
+    <x>320</x>
+    <y>210</y>
+    <height>120</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions>
+        <action type="open_file">
+          <file>VME_powers.bob</file>
+          <description>Powers</description>
+        </action>
+      </actions>
+      <x>10</x>
+      <y>10</y>
       <width>250</width>
       <tooltip>$(actions)</tooltip>
     </widget>
