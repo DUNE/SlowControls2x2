@@ -1,9 +1,9 @@
 file db/channel_slot1-3.tpl{
  pattern {module, device, slot, channel, Ihihi, Ihhsv, Ihigh, Ihsv, Ilow, Ilsv, Ilolo, Illsv, Vhihi, Vhhsv, Vhigh, Vhsv, Vlow, Vlsv, Vlolo, Vllsv}
-       {1, TPC1_pacFAN, 2, 4, 0.6, MAJOR, 0.52, MINOR, -1.0, MINOR, -1.0, MAJOR, 10.0, MAJOR, 7.0, MINOR, -1.0, MINOR, -1.0, MAJOR}
-       {1, TPC2_pacFAN, 2, 5, 0.6, MAJOR, 0.52, MINOR, -1.0, MINOR, -1.0, MAJOR, 10.0, MAJOR, 7.0, MINOR, -1.0, MINOR, -1.0, MAJOR}
-       {1, Interlock, 2, 6, 0.52, MAJOR, 0.5, MINOR, -1.0, MINOR, -1.0, MAJOR, 5.0, MAJOR, 4.16, MINOR, -1.0, MINOR, -1.0, MAJOR}
+       {1, TPC1_pacFAN, 2, 4, 0.65, MAJOR, 0.625, MINOR, -1.0, MINOR, -1.0, MAJOR, 12.5, MAJOR, 9.75, MINOR, -1.0, MINOR, -1.0, MAJOR}
+       {1, TPC2_pacFAN, 2, 5, 0.65, MAJOR, 0.625, MINOR, -1.0, MINOR, -1.0, MAJOR, 12.5, MAJOR, 9.75, MINOR, -1.0, MINOR, -1.0, MAJOR}
+       {1, Interlock, 2, 6, 0.65, MAJOR, 0.575, MINOR, -1.0, MINOR, -1.0, MAJOR, 5.2, MAJOR, 5.1, MINOR, -1.0, MINOR, -1.0, MAJOR}
        {1, pac_res3, 2, 7, 1.0, NO_ALARM, 0.84, NO_ALARM, -1.0, NO_ALARM, -1.0, NO_ALARM, 5.0, NO_ALARM, 4.16, NO_ALARM, -1.0, NO_ALARM, -1.0, NO_ALARM}
-       {1, TPC1_PACMAN, 3, 2, 2.5, MAJOR, 2.2, MINOR, -1.0, MINOR, -1.0, MAJOR, 24.01, MAJOR, 22.4, MINOR, -1.0, MINOR, -1.0, MAJOR}
-       {1, TPC2_PACMAN, 3, 3, 2.5, MAJOR, 2.2, MINOR, -1.0, MINOR, -1.0, MAJOR, 24.01, MAJOR, 22.4, MINOR, -1.0, MINOR, -1.0, MAJOR}
+       {1, TPC1_PACMAN, 3, 2, 2.75, MAJOR, 2.625, MINOR, -1.0, MINOR, -1.0, MAJOR, 28.0, MAJOR, 26.005, MINOR, -1.0, MINOR, -1.0, MAJOR}
+       {1, TPC2_PACMAN, 3, 3, 2.75, MAJOR, 2.625, MINOR, -1.0, MINOR, -1.0, MAJOR, 28.0, MAJOR, 26.005, MINOR, -1.0, MINOR, -1.0, MAJOR}
 }
