@@ -67,7 +67,7 @@ record(ai, "spellmanhv/rI"){
   field(EGU, "mA")
   field(SCAN, "2 second")
   field(LINR,"SLOPE")
-  field(PREC, "3")
+  field(PREC, "5")
   field(AOFF,"0.00")
   field(ASLO, "0.0015064022")
   field(ADEL, 0.02)
