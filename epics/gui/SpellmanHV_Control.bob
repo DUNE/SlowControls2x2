@@ -999,7 +999,7 @@
       <class>Ramp-up to Target</class>
       <actions>
         <action type="command">
-          <command>/home/acd/sungbino/2x2_Slow_Controls/epics/gui/scripts/spellmanhv/spellman_rampon.sh</command>
+          <command>scripts/spellmanhv/spellman_rampon.sh</command>
           <description>Ramp-Up to Target</description>
         </action>
       </actions>

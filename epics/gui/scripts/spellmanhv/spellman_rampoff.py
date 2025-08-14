@@ -20,7 +20,7 @@ if hv_status == 1: # -- HV enabled
     while this_read_kV_bit > target_bit:
         if hv_status == 0:
             continue
-        caput(set_kV_bit_record, this_read_kV_bit - 1)
+        caput(set_kV_bit_record, this_read_kV_bit - 5)
         time.sleep(0.2)
         this_read_kV_bit = int(caget('spellmanhv/rVSet_bit'))
         print("this_read_kV_bit : " + str(this_read_kV_bit))
