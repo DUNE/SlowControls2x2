@@ -205,7 +205,7 @@
         <color name="MAJOR" red="255" green="0" blue="0">
         </color>
       </off_color>
-      <on_label>Clossd</on_label>
+      <on_label>Closed</on_label>
       <on_color>
         <color name="OK" red="0" green="255" blue="0">
         </color>
@@ -996,11 +996,11 @@
     </widget>
     <widget type="action_button" version="3.0.0">
       <name>Action Button_3</name>
-      <class>Ramp-up to Target</class>
+      <class>Ramp to Target</class>
       <actions>
         <action type="command">
           <command>scripts/spellmanhv/spellman_rampon.sh</command>
-          <description>Ramp-Up to Target</description>
+          <description>Ramp to Target</description>
         </action>
       </actions>
       <x>26</x>
@@ -1009,15 +1009,15 @@
       <height>60</height>
       <tooltip>$(actions)</tooltip>
       <show_confirm_dialog>true</show_confirm_dialog>
-      <confirm_message>Are your sure to rampup?</confirm_message>
+      <confirm_message>Are your sure to ramp?</confirm_message>
     </widget>
     <widget type="action_button" version="3.0.0">
       <name>Action Button_4</name>
-      <class>Ramp-up to Target</class>
+      <class>Ramp to Target</class>
       <actions>
         <action type="command">
           <command>scripts/spellmanhv/spellman_rampoff.sh</command>
-          <description>Ramp Downto Zero</description>
+          <description>Ramp Down to Zero</description>
         </action>
       </actions>
       <x>260</x>
@@ -1026,7 +1026,7 @@
       <height>60</height>
       <tooltip>$(actions)</tooltip>
       <show_confirm_dialog>true</show_confirm_dialog>
-      <confirm_message>Are your sure to ramp down?</confirm_message>
+      <confirm_message>Are your sure to ramp down to zero?</confirm_message>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_75</name>

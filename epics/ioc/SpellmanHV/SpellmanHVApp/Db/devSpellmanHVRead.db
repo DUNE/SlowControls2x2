@@ -18,7 +18,7 @@ record(ai, "spellmanhv/rVSet_bit"){
   field(INP, "@devSpellmanHV.proto get_set_v $(PORT) $(BUS)")
   field(EGU, "Bits")
   field(SCAN, "2 second")
-  field(PREC, "3")
+  field(PREC, "0")
 }
 
 record(ai, "spellmanhv/rISet"){
@@ -55,7 +55,7 @@ record(ai, "spellmanhv/rV_bit"){
   field(INP, "@devSpellmanHV.proto get_read_v $(PORT) $(BUS)")
   field(EGU, "Bits")
   field(SCAN, "2 second")
-  field(PREC, "1")
+  field(PREC, "0")
   field(ADEL, 0.1)
   field(MDEL, 0.1)
 }
