@@ -69,6 +69,17 @@ class TTI(UNIT):
                 self.measuring_status[key] = False
         return self.measuring_status
     
+    def getEventStatusRegister(self):
+        """Read and clear Event Status Register"""
+        cmd = '*ESR?'
+        esr = self.send_receive_integer(cmd)
+        return esr
+
+    def getExecutionErrorRegister(self):
+        """Read and clear Execution Error Register"""
+        cmd = 'EER?'
+        eer = self.send_receive_integer(cmd)
+        return eer
     #---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---
     # PRE-DEFINED CONFIGURATION METHODS
     #---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---
@@ -95,7 +106,7 @@ class TTI(UNIT):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.settimeout(self.dictionary["sock_timeout_secs"])
             s.connect((self.dictionary["ip"], self.dictionary["port"]))
-            s.sendall(bytes(cmd,'ascii'))
+            #s.sendall(bytes(cmd,'ascii'))
             s.sendall(bytes(cmd,'ascii'))
             data = self.recv_end(s)
         return data.decode('ascii')
@@ -387,7 +398,9 @@ class TTI(UNIT):
                     print("Continuous DAQ Activated: TTI -" + powering + ". Taking data in real time")
                     voltage = self.readOutputVolts(1)
                     current = self.readOutputCurrent(1)
-                    self.INFLUX_write(powering,[voltage,current])
+                    esr = self.getEventStatusRegister()
+                    eer = self.getExecutionErrorRegister()
+                    self.INFLUX_write(powering,[voltage,current,esr,eer])
                     time.sleep(10)
 
             except Exception as e:

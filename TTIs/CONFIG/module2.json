@@ -7,7 +7,7 @@
             "port" : 9221,
             "powering" : {
                 "voltage" : {
-                    "measurements" : ["voltage", "current"],
+                    "measurements" : ["voltage", "current", "esr", "err"],
                     "channels" : {
                         "1" : {
                             "name" : "CHANNEL_1",
