@@ -11,7 +11,7 @@ async def main():
     import max31865
     
     conf = ConfigParser()
-    conf.read("/home/pi/SlowControls2x2/config.ini")
+    conf.read("/home/pi/SlowControls2x2/RTDs/config.ini")
 
     db = conf["DATABASE"]
     meta = conf["METADATA"]
