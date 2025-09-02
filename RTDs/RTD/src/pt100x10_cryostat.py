@@ -10,7 +10,7 @@ if __name__ == "__main__":
     import max31865
 
     conf = ConfigParser()
-    conf.read("/home/pi/Dune2x2_SlowControl/config.ini")
+    conf.read("/home/pi/SlowControls2x2/RTDs/config.ini")
 
     db = conf["DATABASE"]
     meta = conf["METADATA"]
