@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python /home/pi/SlowControls2x2/RTD/src/pt100x10_cryostat_with_opcua.py
+python /home/pi/SlowControls2x2/RTDs/RTD/src/pt100x10_cryostat_with_opcua.py
