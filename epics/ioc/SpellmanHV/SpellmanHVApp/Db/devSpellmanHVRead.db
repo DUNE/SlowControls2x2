@@ -45,7 +45,7 @@ record(ai, "spellmanhv/rV"){
   field(PREC, "3")
   field(AOFF,"0.00")
   field(ASLO, "0.012553253")
-  field(ADEL, 0.1)
+  field(ADEL, 0.01)
   field(MDEL, 0.01)
 }
 
@@ -70,8 +70,8 @@ record(ai, "spellmanhv/rI"){
   field(PREC, "5")
   field(AOFF,"0.00")
   field(ASLO, "0.0015064022")
-  field(ADEL, 0.02)
-  field(MDEL, 0.01)
+  field(ADEL, 0.001)
+  field(MDEL, 0.001)
 }
 
 record(ai, "spellmanhv/rSWITCH"){

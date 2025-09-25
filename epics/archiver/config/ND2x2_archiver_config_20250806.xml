@@ -6,9 +6,9 @@
   <group><name>SpellmanHV</name>
     <channel><name>spellmanhv/rSWITCH</name><period>0.2</period><monitor/></channel>
     <channel><name>spellmanhv/rStatItrlock</name><period>0.2</period><monitor/></channel>
-    <channel><name>spellmanhv/rI</name><period>0.2</period><monitor/></channel>
-    <channel><name>spellmanhv/rV</name><period>0.2</period><monitor/></channel>
-    <channel><name>spellmanhv/rVSet</name><period>0.2</period><monitor/></channel>
+    <channel><name>spellmanhv/rI</name><period>2.0</period><scan/></channel>
+    <channel><name>spellmanhv/rV</name><period>2.0</period><scan/></channel>
+    <channel><name>spellmanhv/rVSet</name><period>2.0</period><scan/></channel>
     <channel><name>spellmanhv/rISet</name><period>0.2</period><monitor/></channel>
   </group>
   <group><name>MPOD</name>
