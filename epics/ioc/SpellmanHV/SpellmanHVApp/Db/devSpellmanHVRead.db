@@ -1,0 +1,191 @@
+record(ai, "spellmanhv/rVSet"){
+  field(DESC, "Set voltage")
+  field(DTYP, "stream")
+  field(INP, "@devSpellmanHV.proto get_set_v $(PORT) $(BUS)")
+  field(EGU, "kV")
+  field(SCAN, "2 second")
+  field(LINR,"SLOPE")
+  field(PREC, "3")
+  field(AOFF,"0.00")
+  field(ASLO, "0.01221")
+  field(ADEL, 0.1)
+  field(MDEL, 0.01)
+}
+
+record(ai, "spellmanhv/rVSet_bit"){
+  field(DESC, "Set voltage")
+  field(DTYP, "stream")
+  field(INP, "@devSpellmanHV.proto get_set_v $(PORT) $(BUS)")
+  field(EGU, "Bits")
+  field(SCAN, "2 second")
+  field(PREC, "0")
+}
+
+record(ai, "spellmanhv/rISet"){
+  field(DESC, "Set current")
+  field(DTYP, "stream")
+  field(INP, "@devSpellmanHV.proto get_set_i $(PORT) $(BUS)")
+  field(EGU, "mA")
+  field(SCAN, "2 second")
+  field(LINR,"SLOPE")
+  field(PREC, "3")
+  field(AOFF,"0.00")
+  field(ASLO, "0.0014652")
+  field(ADEL, 0.1)
+  field(MDEL, 0.01)
+}
+
+record(ai, "spellmanhv/rV"){
+  field(DESC, "Read back voltage")
+  field(DTYP, "stream")
+  field(INP, "@devSpellmanHV.proto get_read_v $(PORT) $(BUS)")
+  field(EGU, "kV")
+  field(SCAN, "2 second")
+  field(LINR,"SLOPE")
+  field(PREC, "3")
+  field(AOFF,"0.00")
+  field(ASLO, "0.012553253")
+  field(ADEL, 0.01)
+  field(MDEL, 0.01)
+}
+
+record(ai, "spellmanhv/rV_bit"){
+  field(DESC, "Read back voltage")
+  field(DTYP, "stream")
+  field(INP, "@devSpellmanHV.proto get_read_v $(PORT) $(BUS)")
+  field(EGU, "Bits")
+  field(SCAN, "2 second")
+  field(PREC, "0")
+  field(ADEL, 0.1)
+  field(MDEL, 0.1)
+}
+
+record(ai, "spellmanhv/rI"){
+  field(DESC, "Read back current")
+  field(DTYP, "stream")
+  field(INP, "@devSpellmanHV.proto get_read_i $(PORT) $(BUS)")
+  field(EGU, "mA")
+  field(SCAN, "2 second")
+  field(LINR,"SLOPE")
+  field(PREC, "5")
+  field(AOFF,"0.00")
+  field(ASLO, "0.0015064022")
+  field(ADEL, 0.001)
+  field(MDEL, 0.001)
+}
+
+record(ai, "spellmanhv/rSWITCH"){
+  field(DESC, "Read switch of SpellmanHV")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_power $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+  field(ADEL, 0.5)
+  field(MDEL, 0.5)
+}
+
+record(ai, "spellmanhv/rOpModeI"){
+  field(DESC, "SpellmanHV Current Mode Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_op_mode_i $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+}
+
+record(ai, "spellmanhv/rOpModeV"){
+  field(DESC, "SpellmanHV Voltage Mode Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_op_mode_v $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+}
+
+record(ai, "spellmanhv/rStatItrlock"){
+  field(DESC, "SpellmanHV Interlock Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_status_interlock $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+  field(ADEL, 0.5)
+  field(MDEL, 0.5)
+}
+
+record(ai, "spellmanhv/rStatHVInhibit"){
+  field(DESC, "SpellmanHV HV Inhibit Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_status_hvinhibit $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+}
+
+record(ai, "spellmanhv/rStatOverV"){
+  field(DESC, "SpellmanHV Over Voltage Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_status_overvolt $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+}
+
+record(ai, "spellmanhv/rStatOverI"){
+  field(DESC, "SpellmanHV Over Current Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_status_overcurr $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+}
+
+record(ai, "spellmanhv/rStatOverPw"){
+  field(DESC, "SpellmanHV Over Power Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_status_overpw $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+}
+
+record(ai, "spellmanhv/rStatRegErr"){
+  field(DESC, "SpellmanHV Regulator Error Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_status_regerr $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+}
+
+record(ai, "spellmanhv/rStatArcFault"){
+  field(DESC, "SpellmanHV Arc Fault Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_status_arcfault $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+}
+
+record(ai, "spellmanhv/rStatOverTemp"){
+  field(DESC, "SpellmanHV Over Temperature Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_status_overtemp $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+}
+
+record(ai, "spellmanhv/rStatAdjOvldFault"){
+  field(DESC, "SpellmanHV Adjustable Overload Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_status_adjovldfault $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+}
+
+record(ai, "spellmanhv/rStatSysFault"){
+  field(DESC, "SpellmanHV System Fault Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_status_sysfault $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+}
+
+record(ai, "spellmanhv/rStatRLMode"){
+  field(DESC, "SpellmanHV Remote or Local Mode Status")
+  field(DTYP, "stream")
+  field(INP,  "@devSpellmanHV.proto get_status_rlmode $(PORT) $(BUS)")
+  field(PINI, "YES")
+  field(SCAN, "10 second")
+}

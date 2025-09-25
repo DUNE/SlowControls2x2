@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-08-12 08:43:57 by sungbino-->
+<display version="2.0.0">
+  <name>VME Power</name>
+  <width>1000</width>
+  <height>1000</height>
+  <background_color>
+    <color red="255" green="255" blue="255" alpha="0">
+    </color>
+  </background_color>
+  <widget type="group" version="3.0.0">
+    <name>MPOD Mini-crates</name>
+    <x>40</x>
+    <y>40</y>
+    <width>390</width>
+    <height>100</height>
+    <style>2</style>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Label_22</name>
+      <text>Main Power</text>
+      <x>20</x>
+      <y>10</y>
+      <width>90</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>LED_12</name>
+      <pv_name>ADC_crate/sysMainSwitch</pv_name>
+      <bit>-1</bit>
+      <x>20</x>
+      <y>50</y>
+      <width>90</width>
+      <off_label></off_label>
+      <off_color>
+        <color red="0" green="100" blue="0">
+        </color>
+      </off_color>
+      <on_label></on_label>
+      <on_color>
+        <color red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <foreground_color>
+        <color red="192" green="192" blue="192">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <show_confirm_dialog>1</show_confirm_dialog>
+      <confirm_message>Are your sure you want to do this for ADC VME crate??</confirm_message>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_24</name>
+      <text>Power Status</text>
+      <x>130</x>
+      <y>10</y>
+      <width>110</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_59</name>
+      <pv_name>ADC_crate/sysStatus</pv_name>
+      <x>130</x>
+      <y>50</y>
+      <width>110</width>
+      <height>30</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_60</name>
+      <pv_name>ADC_crate/psSerialNumber</pv_name>
+      <x>260</x>
+      <y>50</y>
+      <width>110</width>
+      <height>30</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_25</name>
+      <text>Serial Number</text>
+      <x>260</x>
+      <y>10</y>
+      <width>110</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>MPOD Mini-crates_1</name>
+    <x>40</x>
+    <y>190</y>
+    <width>390</width>
+    <height>100</height>
+    <style>2</style>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Label_23</name>
+      <text>Main Power</text>
+      <x>20</x>
+      <y>10</y>
+      <width>90</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>LED_14</name>
+      <pv_name>VGA_crate01/sysMainSwitch</pv_name>
+      <bit>-1</bit>
+      <x>20</x>
+      <y>50</y>
+      <width>90</width>
+      <off_label></off_label>
+      <off_color>
+        <color red="0" green="100" blue="0">
+        </color>
+      </off_color>
+      <on_label></on_label>
+      <on_color>
+        <color red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <foreground_color>
+        <color red="192" green="192" blue="192">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <show_confirm_dialog>1</show_confirm_dialog>
+      <confirm_message>Are your sure you want to do this for VGA VME Crate 01?</confirm_message>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_26</name>
+      <text>Power Status</text>
+      <x>130</x>
+      <y>10</y>
+      <width>110</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_61</name>
+      <pv_name>VGA_crate01/sysStatus</pv_name>
+      <x>130</x>
+      <y>50</y>
+      <width>110</width>
+      <height>30</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_62</name>
+      <pv_name>VGA_crate01/psSerialNumber</pv_name>
+      <x>260</x>
+      <y>50</y>
+      <width>110</width>
+      <height>30</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_27</name>
+      <text>Serial Number</text>
+      <x>260</x>
+      <y>10</y>
+      <width>110</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>MPOD Mini-crates_2</name>
+    <x>40</x>
+    <y>340</y>
+    <width>390</width>
+    <height>100</height>
+    <style>2</style>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Label_28</name>
+      <text>Main Power</text>
+      <x>20</x>
+      <y>10</y>
+      <width>90</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>LED_15</name>
+      <pv_name>VGA_crate23/sysMainSwitch</pv_name>
+      <bit>-1</bit>
+      <x>20</x>
+      <y>50</y>
+      <width>90</width>
+      <off_label></off_label>
+      <off_color>
+        <color red="0" green="100" blue="0">
+        </color>
+      </off_color>
+      <on_label></on_label>
+      <on_color>
+        <color red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <foreground_color>
+        <color red="192" green="192" blue="192">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <confirm_message>Are your sure you want to do this for VGA VME Crate 23?</confirm_message>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_29</name>
+      <text>Power Status</text>
+      <x>130</x>
+      <y>10</y>
+      <width>110</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_63</name>
+      <pv_name>VGA_crate23/sysStatus</pv_name>
+      <x>130</x>
+      <y>50</y>
+      <width>110</width>
+      <height>30</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_64</name>
+      <pv_name>VGA_crate23/psSerialNumber</pv_name>
+      <x>260</x>
+      <y>50</y>
+      <width>110</width>
+      <height>30</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_30</name>
+      <text>Serial Number</text>
+      <x>260</x>
+      <y>10</y>
+      <width>110</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_133</name>
+    <text>ADC VME Crate</text>
+    <x>40</x>
+    <y>10</y>
+    <width>390</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Header_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="Header_Background" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_134</name>
+    <text>VGA VME Crate 01</text>
+    <x>40</x>
+    <y>160</y>
+    <width>390</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Header_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="Header_Background" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_135</name>
+    <text>VGA VME Crate 23</text>
+    <x>40</x>
+    <y>310</y>
+    <width>390</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Header_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="Header_Background" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+</display>

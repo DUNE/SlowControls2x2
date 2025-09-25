@@ -1,0 +1,33 @@
+# File /etc/systemd/system/alarm_server.service
+#
+# After changes
+#   sudo systemctl daemon-reload
+#
+# Start/status/stop
+#   sudo systemctl start alarm_server.service
+#   sudo systemctl status alarm_server.service
+#   sudo systemctl stop alarm_server.service
+#
+# Start when computer boots:
+#   sudo systemctl enable alarm_server.service
+#
+# Log file:
+#   less +GF /home/controls/css/phoebus-alarm-server/console.log
+#
+# Console:
+#   telnet localhost 4609
+
+[Unit]
+Description=Phoebus Alarm Server
+After=kafka.service
+Requires=kafka.service
+RequiresMountsFor=/home/acd/acdcs
+
+[Service]
+Type=forking
+User=acdcs
+Group=pdunedaq
+ExecStart=/home/acd/acdcs/2x2/EPICS/2x2_Slow_Controls/epics/alarm_server/runAlarmServer.sh
+
+[Install]
+WantedBy=multi-user.target
