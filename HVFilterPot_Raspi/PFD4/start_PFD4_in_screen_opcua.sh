@@ -5,4 +5,4 @@
 #   Last modified:  2025-09-25
 #   by:             Nicolas Sallin, nicolas.sallin@unibe.ch
 
-screen -dmS "PFD4" bash -c 'python3 /home/pi/Dune2x2_SlowControl/PFD4/src/20250903_PFD4_opcua.py; exec sh'
+screen -dmS "PFD4_opcua" bash -c 'python3 /home/pi/SlowControls2x2/HVFilterPot_Raspi/PFD4/src/PFD4_opcua.py; exec sh'
