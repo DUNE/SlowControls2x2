@@ -185,7 +185,7 @@ async def main():
                     for i in range(len(channels_adc)):
                         await uavar[i].write_value(values_adc[i])
                     for j in range(len(channels_adc),len(channels_adc)+len(channels_tc)):
-                        await uavar[j].write_value(value_tc[j])
+                        await uavar[j].write_value(values_tc[j])
 
                     # Wait the specified interval between reads.
                     await asyncio.sleep(int(para["CTIME"]))
