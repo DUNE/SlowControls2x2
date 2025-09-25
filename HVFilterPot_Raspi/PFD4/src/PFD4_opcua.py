@@ -94,13 +94,19 @@ async def main():
         print('\nAcquiring data ... Press Ctrl-C to abort')
 
         # Display the header row for the data table.
-        print('\n   Sample', end='')
-        print('\n       TC ', channel_tc, end='')
+        print('\n\tSample', end='')
+        print('\n\tTC ', channel_tc, end='')
+        print(f'\t{hat_tc.t_in_read(channel_tc):12.2f}')
         for channel in channels_adc:
-            print('\n\n        kV',channel, end='')
-            print('        ADC', channel,end='')
-            print('        Raw_value', channel,end='')
+            print('\n\n\tkV',channel, end='')
+            print('\tADC', channel,end='')
+            print('\tRaw_value', channel,end='')
             #print('        Raw_value*1000-PED', channel,end='')
+            value_adc = hat_adc.a_in_read(channel)
+            print(f'\t{value_adc:12.2f}')
+            value_adc = value_adc* kv[channel] + ped[channel]
+            print(f'\t{value_adc:12.2f}')
+            print(f'\t{hat_adc.a_in_read(channel, options=OptionFlags.NOSCALEDATA):12.2f}')
         print('')
         
         try:

@@ -75,11 +75,11 @@ def main():
 
         # Display the header row for the data table.
         print('\n\tSample')
-        print('\n\t\tTC ', channel_tc)
+        print('\n\tTC ', channel_tc)
         for channel in channels_adc:
-            print('\n\n\t\tkV',channel, end='')
-            print('\t\tADC', channel,end='')
-            print('\t\tRaw_value', channel,end='')
+            print('\n\n\tkV',channel, end='')
+            print('\tADC', channel,end='')
+            print('\tRaw_value', channel,end='')
             #print('        Raw_value*1000-PED', channel,end='')
         print('')
         
