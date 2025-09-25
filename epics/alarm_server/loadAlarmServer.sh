@@ -2,7 +2,7 @@
 
 alarmserverDir=/home/acd/acdcs/2x2/EPICS/phoebus/phoebus/services/alarm-server
 host=acd-daq05-priv.fnal.gov
-alarmConfigDir=/home/acd/acdcs/2x2/EPICS/2x2_Slow_Controls/epics/alarm_server/alarm_config/
+alarmConfigDir=/home/acd/acdcs/2x2/SlowControls2x2/epics/alarm_server/alarm_config/
 
 cd $alarmserverDir
 
