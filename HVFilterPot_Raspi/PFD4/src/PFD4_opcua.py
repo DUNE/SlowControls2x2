@@ -95,7 +95,7 @@ async def main():
         # Display the header row for the data table.
         print('\n  Sample', end='')
         for channel in channels_tc:
-            print('       TC ', channel, end='')
+            print('\n       TC ', channel, end='')
         for channel in channels_adc:
             print('\n\n        kV',channel, end='')
             print('        ADC', channel,end='')
@@ -184,8 +184,8 @@ async def main():
 
                     for i in range(len(channels_adc)):
                         await uavar[i].write_value(values_adc[i])
-                    for j in range(len(channels_adc),len(channels_adc)+len(channels_tc)):
-                        await uavar[j].write_value(values_tc[j])
+                    for j in range(len(channels_tc)):
+                        await uavar[j+len(channels_adc)].write_value(values_tc[j])
 
                     # Wait the specified interval between reads.
                     await asyncio.sleep(int(para["CTIME"]))
