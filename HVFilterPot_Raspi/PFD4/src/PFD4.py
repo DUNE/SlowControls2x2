@@ -75,9 +75,9 @@ def main():
 
         # Display the header row for the data table.
         print('\n\tSample')
-        print('\n\tTC ', channel_tc)
+        print('\n\t\tTC ', channel_tc)
         for channel in channels_adc:
-            print('\n\n\tkV',channel, end='')
+            print('\n\n\t\tkV',channel, end='')
             print('\t\tADC', channel,end='')
             print('\t\tRaw_value', channel,end='')
             #print('        Raw_value*1000-PED', channel,end='')
@@ -90,7 +90,7 @@ def main():
             while True:
                 # Display the updated samples per channel count
                 samples_per_channel += 1
-                print('\r\033[14A\tSample:\t{:8d}'.format(samples_per_channel))
+                print('\r\033[14A\tSample:{:8d}'.format(samples_per_channel))
                 
                 # Read TCs
                 value_tc = hat_tc.t_in_read(channel_tc)
@@ -109,20 +109,20 @@ def main():
                 elif value_tc == mcc134.COMMON_MODE_TC_VALUE:
                     print('   Common Mode', end='')
                 else:
-                    print('\r\033[2B\t{:12.2f}'.format(value_tc))
+                    print('\r\033[2B{:12.2f} '.format(value_tc))
 
                                         
                 # Read ADC
                 values_adc = []
                 for channel in channels_adc:
                     value_adc = hat_adc.a_in_read(channel)
-                    print('\r\033[2B\t{:.3f}'.format(value_adc), end = '') #raw [V]
+                    print('\r\033[34G\033[2B{:.3f}'.format(value_adc), end = '') #raw [V]
                     value_adc = value_adc* kv[channel] + ped[channel]
                     #print('\r\033[58G{:.4f}'.format(value_adc), end='')
                     #value_adc *= kv[channel]
-                    print('\r\t\t{:.3f}'.format(value_adc), end='') #HV [kV]
+                    print('\r\033[7G {:.3f}'.format(value_adc), end='') #HV [kV]
                     ADC_value = hat_adc.a_in_read(channel, options=OptionFlags.NOSCALEDATA)
-                    print('\r\t\t{:.0f}'.format(ADC_value), end='') # ADC value []
+                    print('\r\033[19G{:.0f} '.format(ADC_value), end='') # ADC value []
                     values_adc.append(value_adc)
                     
                 #Get correct time for influx

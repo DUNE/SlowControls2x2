@@ -108,10 +108,11 @@ async def main():
             json_payload = []
             
             async with s:
+                
                 while True:
                     # Display the updated samples per channel count
                     samples_per_channel += 1
-                    print('\r        \033[14A{:8d}'.format(samples_per_channel))
+                    # print('\r        \033[14A{:8d}'.format(samples_per_channel))
                     
                     # Read TC
                     value_tc = hat_tc.t_in_read(channel_tc)
@@ -129,20 +130,20 @@ async def main():
                         print('     OverRange', end='')
                     elif value_tc == mcc134.COMMON_MODE_TC_VALUE:
                         print('   Common Mode', end='')
-                    else:
-                        print('\r\033[2B{:12.2f} '.format(value_tc))
+                    # else:
+                        # print('\r\033[2B{:12.2f} '.format(value_tc))
                                                 
                     # Read ADC
                     values_adc = []
                     for channel in channels_adc:
                         value_adc = hat_adc.a_in_read(channel)
-                        print('\r\033[34G\033[2B{:.3f}'.format(value_adc), end = '') #raw [V]
+                        # print('\r\033[34G\033[2B{:.3f}'.format(value_adc), end = '') #raw [V]
                         value_adc = value_adc* kv[channel] + ped[channel]
                         #print('\r\033[58G{:.4f}'.format(value_adc), end='')
                         #value_adc *= kv[channel]
-                        print('\r\033[7G {:.3f}'.format(value_adc), end='') #HV [kV]
-                        ADC_value = hat_adc.a_in_read(channel, options=OptionFlags.NOSCALEDATA)
-                        print('\r\033[19G{:.0f} '.format(ADC_value), end='') # ADC value []
+                        # print('\r\033[7G {:.3f}'.format(value_adc), end='') #HV [kV]
+                        # ADC_value = hat_adc.a_in_read(channel, options=OptionFlags.NOSCALEDATA)
+                        # print('\r\033[19G{:.0f} '.format(ADC_value), end='') # ADC value []
                         values_adc.append(value_adc)
                         
                     # Get correct time for influx
