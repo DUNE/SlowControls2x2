@@ -103,7 +103,7 @@ async def main():
             print('\tRaw_value', channel,end='')
             #print('        Raw_value*1000-PED', channel,end='')
             value_adc = hat_adc.a_in_read(channel)
-            print(f'\t{value_adc:12.2f}')
+            print(f'\n\t{value_adc:12.2f}')
             value_adc = value_adc* kv[channel] + ped[channel]
             print(f'\t{value_adc:12.2f}')
             print(f'\t{hat_adc.a_in_read(channel, options=OptionFlags.NOSCALEDATA):12.2f}')
