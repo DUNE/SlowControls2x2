@@ -74,7 +74,7 @@ async def main():
     for chan_adc in channels_adc:
         uavar.append(await uaobj.add_variable(idx,"hvchan%02d" % chan_adc,0.0))
         await uavar[-1].set_writable()
-    for chan_tc in chan_tc:
+    for chan_tc in channels_tc:
         uavar.append(await uaobj.add_variable(idx,"hvtc%02d" % chan_tc,0.0))
         await uavar[-1].set_writable()
 
