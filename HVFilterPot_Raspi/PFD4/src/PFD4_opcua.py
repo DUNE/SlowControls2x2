@@ -60,7 +60,7 @@ async def main():
     client = InfluxDBClient(host = db["IP"], port = int(db["PORT"]), database = db["NAME"])
 
     tc_type = TcTypes.TYPE_K   # change this to the desired thermocouple type
-    channels_tc = {0}
+    channel_tc = 0
     channels_adc = {0,1,2,3,4}
 
     #Setup OPC UA server
@@ -74,9 +74,9 @@ async def main():
     for chan_adc in channels_adc:
         uavar.append(await uaobj.add_variable(idx,"hvchan%02d" % chan_adc,0.0))
         await uavar[-1].set_writable()
-    for chan_tc in channels_tc:
-        uavar.append(await uaobj.add_variable(idx,"hvtc%02d" % chan_tc,0.0))
-        await uavar[-1].set_writable()
+
+    uavar.append(await uaobj.add_variable(idx,"hvtc%02d" % channel_tc,0.0))
+    await uavar[-1].set_writable()
 
     try:
         # Get an instance of the selected hat device object.
@@ -84,8 +84,9 @@ async def main():
         address_adc = select_hat_device(HatIDs.MCC_118)
         hat_tc = mcc134(address_tc)
         hat_adc = mcc118(address_adc)
-        for channel in channels_tc:
-            hat_tc.tc_type_write(channel, tc_type)
+
+        hat_tc.tc_type_write(channel_tc, tc_type)
+
         print('    Offset constants: OFFSET_SENS_A = {}, OFFSET_SENS_B = {}, OFFSET_SENS_C = {}'.format(OFFSET_SENS_A, OFFSET_SENS_B, OFFSET_SENS_C))
         print('    PED constants: PED_0 = {}, PED_1 = {}, PED_2 = {}, PED_3 = {}, PED_4 = {}'.format(ped[0], ped[1], ped[2], ped[3], ped[4]))
         print('    KV cosntants: KV_0 = {}, KV_1 = {}, KV_2 = {}, KV_3 = {}, KV_4 = {}'.format(kv[0], kv[1], kv[2], kv[3], kv[4]))
@@ -93,9 +94,8 @@ async def main():
         print('\nAcquiring data ... Press Ctrl-C to abort')
 
         # Display the header row for the data table.
-        print('\n  Sample', end='')
-        for channel in channels_tc:
-            print('\n       TC ', channel, end='')
+        print('\n   Sample', end='')
+        print('\n       TC ', channel_tc, end='')
         for channel in channels_adc:
             print('\n\n        kV',channel, end='')
             print('        ADC', channel,end='')
@@ -113,28 +113,24 @@ async def main():
                     samples_per_channel += 1
                     print('\r        \033[14A{:8d}'.format(samples_per_channel))
                     
-                    # Read TCs
-                    values_tc = []
-                    for channel in channels_tc:
-                        value_tc = hat_tc.t_in_read(channel)
-                        
-                        #corr = (hat_tc.cjc_read(channel)-24.3)*1.7
-                        #value=value - corr + 4.5
-                        #value = hat_tc.a_in_read(channel)*1000
-                        #if channel == 0:
-                            #position = "A"
-                            #value += OFFSET_SENS_A
-                        
-                        if value_tc == mcc134.OPEN_TC_VALUE:
-                            print('     Open     ', end='')
-                        elif value_tc == mcc134.OVERRANGE_TC_VALUE:
-                            print('     OverRange', end='')
-                        elif value_tc == mcc134.COMMON_MODE_TC_VALUE:
-                            print('   Common Mode', end='')
-                        else:
-                            print('\r\033[2B{:12.2f} '.format(value_tc))
-
-                        values_tc.append(value_tc)
+                    # Read TC
+                    value_tc = hat_tc.t_in_read(channel_tc)
+                    
+                    #corr = (hat_tc.cjc_read(channel)-24.3)*1.7
+                    #value=value - corr + 4.5
+                    #value = hat_tc.a_in_read(channel)*1000
+                    #if channel == 0:
+                        #position = "A"
+                        #value += OFFSET_SENS_A
+                    
+                    if value_tc == mcc134.OPEN_TC_VALUE:
+                        print('     Open     ', end='')
+                    elif value_tc == mcc134.OVERRANGE_TC_VALUE:
+                        print('     OverRange', end='')
+                    elif value_tc == mcc134.COMMON_MODE_TC_VALUE:
+                        print('   Common Mode', end='')
+                    else:
+                        print('\r\033[2B{:12.2f} '.format(value_tc))
                                                 
                     # Read ADC
                     values_adc = []
@@ -159,9 +155,8 @@ async def main():
                     # Build Data fields
                     fields = {}
 
-                    # Add all TC values
-                    for i, val in enumerate(values_tc):
-                        fields[f"Temperature{i}"] = val
+                    # Add TC value
+                    fields[f"Temperature"] = value_tc
 
                     # Add all ADC values
                     for j, val in enumerate(values_adc):
@@ -184,8 +179,8 @@ async def main():
 
                     for i in range(len(channels_adc)):
                         await uavar[i].write_value(values_adc[i])
-                    for j in range(len(channels_tc)):
-                        await uavar[j+len(channels_adc)].write_value(values_tc[j])
+                    
+                    await uavar[len(channels_adc)].write_value(value_tc)
 
                     # Wait the specified interval between reads.
                     await asyncio.sleep(int(para["CTIME"]))
