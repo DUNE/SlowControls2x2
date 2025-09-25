@@ -27,7 +27,7 @@ RequiresMountsFor=/home/acd/acdcs
 Type=forking
 User=acdcs
 Group=pdunedaq
-ExecStart=/home/acd/acdcs/2x2/EPICS/2x2_Slow_Controls/epics/alarm_server/runAlarmServer.sh
+ExecStart=/home/acd/acdcs/2x2/SlowControls2x2/epics/alarm_server/runAlarmServer.sh
 
 [Install]
 WantedBy=multi-user.target

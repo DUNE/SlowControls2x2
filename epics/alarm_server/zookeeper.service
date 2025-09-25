@@ -24,8 +24,8 @@ Type=simple
 User=acdcs
 Group=pdunedaq
 Environment=JAVA_HOME=/home/acd/acdcs/2x2/EPICS/phoebus/jdk-22
-ExecStart=/home/acd/acdcs/2x2/EPICS/2x2_Slow_Controls/epics/alarm_server/start_zookeeper.sh
-ExecStop=/home/acd/acdcs/2x2/EPICS/2x2_Slow_Controls/epics/alarm_server/stop_zookeeper.sh
+ExecStart=/home/acd/acdcs/2x2/SlowControls2x2/epics/alarm_server/start_zookeeper.sh
+ExecStop=/home/acd/acdcs/2x2/SlowControls2x2/epics/alarm_server/stop_zookeeper.sh
 
 [Install]
 WantedBy=multi-user.target
