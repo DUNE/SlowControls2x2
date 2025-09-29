@@ -21,12 +21,10 @@ sys.path.append(TTI_path)
 from Source.tti_library_old import ttiPsu
 from Source.tti_control import ramp_down, ramp_up
 
-from Source.test_source import print_in_source
-
 CONFIG_PATH = os.path.join(TTI_path, "CONFIG/")
 
 def _check_args(modules):
-    # Delete the duplicate and check that the correct number were given
+    # Delete the duplicate and check that the correct numbers were given
     set_modules = set(modules)
     if not set_modules.issubset({0, 1, 2, 3}):
         raise ValueError("Wrong modules number provided. Accepted values are 0,1,2 and/or 3")
@@ -78,13 +76,10 @@ def _ramp_down(module):
     print(f"Ip address found: {ip_tti}")
 
     tti = ttiPsu(ip_tti,1)
-    #   Start voltage so that if connection is lost things dont blow up 
+    # Start voltage so that if connection is lost things dont blow up 
     V_start = tti.readOutputVolts()
     status = tti.getOutputIsEnabled()
     max_amp = tti.getMaxAmps()
-    # V_start = "v_start"
-    # status = False
-    # max_amp = "max_amp"
 
     if status == True:
         status = "Enabled"
@@ -93,6 +88,7 @@ def _ramp_down(module):
     else:
         raise ValueError(f"Unexpected status returned for TTI {module}: {status}")
     print(f"The current voltage on the TTI is: {V_start}\t V\nCurrently the output status is (True/enabled): {status}\nThe current limit on the TTI is: {max_amp}")
+    
     # Ramp down
     ramp_down(ip_tti)
 
@@ -110,13 +106,10 @@ def _ramp_up(module):
     print(f"Ip address found: {ip_tti}")
 
     tti = ttiPsu(ip_tti,1)
-    #   Start voltage so that if connection is lost things dont blow up 
+    # Start voltage so that if connection is lost things dont blow up 
     V_start = tti.readOutputVolts()
     status = tti.getOutputIsEnabled()
     max_amp = tti.getMaxAmps()
-    # V_start = "v_start"
-    # status = True
-    # max_amp = "max_amp"
 
     if status == True:
         status = "Enabled"
@@ -126,7 +119,7 @@ def _ramp_up(module):
         raise ValueError(f"Unexpected status returned for TTI {module}: {status}")
     print(f"The current voltage on the TTI is: {V_start}\t V\nCurrently the output status is: {status}\nThe current limit on the TTI is: {max_amp}")
 
-    # Ramp down
+    # Ramp up
     ramp_up(ip_tti,0,100)
 
     return 0
@@ -141,7 +134,7 @@ def main(command, modules):
         5. Turn back on the TTIs monitoring
 
     Args:
-        command:    Command for the ramp, up or down
+        command:    Command for the ramp {up,down}
         modules:    TTI number to ramp
     """
 
@@ -161,7 +154,7 @@ def main(command, modules):
     _turn_off_monitoring()
 
     #####
-    #       4. Ramp down the TTIs
+    #       4. Ramp the TTIs
     #####
     ramp_status = []
     for module in modules:
@@ -171,10 +164,11 @@ def main(command, modules):
 
         elif command == "up":
             ramp_status[-1] = _ramp_up(module)
+
     if 1 in ramp_status:
-        print("\nNot all TTIs were ramped. The statues are (0/success, 1/error): {ramp_status}")
+        print(f"\nNot all TTIs were ramped {command}. The statues are (0/success, 1/error): {ramp_status}")
     else:
-        print("\nThe TTIs were ramped down.")
+        print(f"\nThe TTIs {modules} were ramped.")
 
     #####
     #       5. Turn the monitoring back on
