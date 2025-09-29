@@ -1,8 +1,13 @@
 """
-    Script to automatically ramp down all the TTis
+    Script to automatically ramp the desired TTis. The monitoring will be turned off during the procedure.
 
-    Last modification:  2025-09-28
+    Last modification:  2025-09-29
     by:                 Nicolas Sallin, nicolas.sallin@unibe.ch
+
+    Usage:  -Ramp up all the TTIs:
+    python3 scripts/ttis_ramp.py up
+            -Ramp down TTIs 0 and 2
+    python3 scripts/ttis_ramp.py down --modules 0 2
 """
 import argparse
 import sys
@@ -122,18 +127,22 @@ def _ramp_up(module):
     print(f"The current voltage on the TTI is: {V_start}\t V\nCurrently the output status is: {status}\nThe current limit on the TTI is: {max_amp}")
 
     # Ramp down
-    ramp_up(ip,0,100)
+    ramp_up(ip_tti,0,100)
 
     return 0
 
 def main(command, modules):
     """
-    Main funciton of the script:
+    Main function to ramp the TTIs:
         1. Check the arguments
         2. Ask the safety questions
         3. Turn off the TTIs monitoring
         4. Ramp the TTIs
-        5. Turn on the TTIs monitoring again
+        5. Turn back on the TTIs monitoring
+
+    Args:
+        command:    Command for the ramp, up or down
+        modules:    TTI number to ramp
     """
 
     #####
