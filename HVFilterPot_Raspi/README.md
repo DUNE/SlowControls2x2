@@ -18,17 +18,31 @@ You will be prompted to enter a password.
 After you are in the raspi enter:
 
 ```bash
-cd Dune2x2_SlowControl/PFD4/
+cd SlowControls2x2/HVFilterPot_Raspi/PFD4/
 ```
 
-After you are in this directory using
+After you are in this directory, start the monitoring in a screen that push the data to influxdb and to a OPC UA server 
+
+```bash
+./start_PFD4_in_screen_opcua.sh
+```
+or push data only to influxdb
 
 ```bash
 ./start_PFD4_in_screen.sh
 ```
-to start the monitor in screen, and using
+
+Recall to see the list of screen session
 
 ```bash
-./start_PFD4.sh
+screen -ls
 ```
-will allow you to monitor the values in the terminal.
+to attach to a session
+```bash
+screen -r <session_name>
+```
+to detach a session (aka to quit the session but leave it active in the background):
+ctrl+a then d
+
+to kill a session (aka to quit the session and kill it at the same time):
+ctrl+a then :quit
