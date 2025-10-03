@@ -15,6 +15,8 @@ if hv_status == 1:  # -- HV enabled
     
     if this_read_kV_bit > target_bit:
         # RAMP DOWN to zero
+        print("Set target voltage to zero")
+        caput('spellmanhv/targetV_kV', 0.)
         print(f"Ramping DOWN from {this_read_kV_bit} to {target_bit} bits (zero)")
         while this_read_kV_bit > target_bit:
             hv_status = int(caget('spellmanhv/rSWITCH'))  # Re-check status
